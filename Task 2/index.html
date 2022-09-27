@@ -10,10 +10,10 @@
         crossorigin="anonymous">
   
 </head>
-<body>
-    <h1 style="text-align:center;">Task 2 -- Fill in the form below :</h1>
-    <form action="">
-        <div class="container border p-3 shadow mt-5" style="width: 500px; margin:auto;">
+<body class="bg-success">
+    <h1 style="text-align:center;"  >Task 2 -- Fill in the form below :</h1>
+    <form action="" class="bg-info">
+        <div class="container border bg-light p-3 shadow pt-5" style="width: 500px; margin:auto;">
             <!-- first name -->
             <div class="mb-3">
                 <label for="first-name" class="form-label">First Name</label>
@@ -71,7 +71,20 @@
                 <label for="enrollment-date" class="form-label">Enrollment Date:</label>
                 <input type="date" class="form-control" id="enrollment-date" required>
             </div>
-
+            <!-- remarks -->
+                <label for="remarks">Remarks</label>
+                <textarea class="form-control" placeholder="Leave a comment here" id="remarks" style="height: 100px"></textarea>
+            </div>
+            <!-- interest -->
+            Vehicle:
+            <div class="mb-3">
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1"> I have a bike</label><span style="margin-left: 10px;"></span>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <label for="vehicle2"> I have a car</label><span style="margin-left: 10px;"></span>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle3"> I have a boat</label>
+            </div>
             <!-- submit button -->
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Submit</button>
