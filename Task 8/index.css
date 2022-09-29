@@ -1,0 +1,106 @@
+*, *::after, *::before {
+    /* font-family: Mukta, 'Times New Roman', 'Times', 'serif'; */
+    box-sizing: border-box;
+}
+
+nav{
+    background-color: white;
+}
+.hamburger{
+    outline: none;
+    /* border: none; */
+    background-color: #f8f8f8;
+}
+.account-logo i {
+    color: #aaa;
+    cursor: pointer;
+}
+
+.banner-image{
+    height: 200px;
+    margin: 0 30px;
+    background-image: url(./images/Ekantipur\ image/dashain_banner-2078-desktop.svg);
+}
+.home-nav-item{
+    margin: 0 30px;
+    font-size: 1.1rem;
+    font-family: Mukta, 'Times New Roman', 'Times', 'serif';
+    color:#0f6eb1;
+}
+.paint-ad-banner, .hot-news-image, .short-news, .blog-card{
+    margin: 20px 30px 40px 30px;
+}
+.hot-news-headline{
+    font-size: 3rem;
+    font-family: Mukta, 'Times New Roman', 'Times', 'serif';    
+    text-align: center;
+    font-weight: 600;
+}
+.hot-news-headline > a, .blog-title > a, .thought-link > a{
+    color: black;
+    font-family: Mukta, 'Times New Roman', 'Times', 'serif';
+    text-decoration: none;
+}
+.thought-link > a{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.hot-news-headline > a:hover, .blog-title > a:hover, .thought-link > a:hover{
+    color: #0f6eb1;
+    transition: all 0.6s ease-in-out;
+}
+.fa-solid::after{
+content: '|';
+position: absolute;
+top: 16px;
+margin-left: 4px;
+font-size: 26px;
+}
+.thought-card{
+    height: 300px;
+    width: 280px;    
+}
+.blog-author-date{
+    color: #0f6eb1;
+    font-size: 0.8rem;
+}
+.blog-description{
+    display: -webkit-box;
+    line-height: 1.6;
+    word-break: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
+.thought-card-section{
+    overflow: hidden;
+    position: fixed;
+    right:0;
+}
+.thought-card-section:hover{
+    overflow-y: scroll;
+    height: 600px;   
+}
+/* width */
+.thought-card-section::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+.thought-card-section::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+    margin: 10px 0;
+  }
+   
+  /* Handle */
+.thought-card-section::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 4px;
+  }
+  
+  /* Handle on hover */
+.thought-card-section::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
