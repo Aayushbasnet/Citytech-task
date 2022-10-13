@@ -3,8 +3,12 @@ import axios from 'axios';
 import SummaryCard from '../Component/SummaryCard.js';
 import './Dashboard.css';
 import Tables from '../Component/Tables.js';
+import {useNavigate} from 'react-router-dom';
+import { Col, Row } from 'antd';
+import Sidebar from '../Component/Sidebar.js';
 
 export default function Dashboard() {
+    const navigate = useNavigate();
     const summaryApi='https://jp-dev.cityremit.global/web-api/transaction-manager/v1/admin/dashboard/summary';
     const recentTranscationApi = 'https://jp-dev.cityremit.global/web-api/transaction-manager/v1/admin/dashboard/search';
     const ticketApi = 'https://jp-dev.cityremit.global/web-api/config/v1/tickets/search';
@@ -14,6 +18,7 @@ export default function Dashboard() {
     const [ticketData, setTicketData]= useState([]);
     const [recentTranscationStatus, setRecentTranscationStatus]= useState(false);
     const [ticketStatus, setTicketStatus]= useState(false);
+    
     useEffect(()=>{
         const getSummary = async()=>{
             await axios
@@ -23,9 +28,10 @@ export default function Dashboard() {
                     }
             }).then(res=>{
                 setSummaryData(res.data.data[0]);
-                console.log(summaryData);
+                // console.log(summaryData);
             }).catch(err=>{
-                console.log(err);
+                navigate('/');
+                // console.log(err);
             });
         };
         const getRecentTranscation = async()=>{
@@ -52,7 +58,7 @@ export default function Dashboard() {
                 }).then(res=>{
                     setTicketData(res.data.data.data);
                     setTicketStatus(true);
-                    console.log(recentTranscationData);
+                    // console.log(recentTranscationData);
                     // console.log(recentTranscationData);
                 }).catch(err=>{
                     console.log(err);
@@ -120,27 +126,24 @@ export default function Dashboard() {
     ];
 
   return (
-    <div>
-        <h1>hell</h1>
-        {/* summary data */}
-        <div className="site-card-border-wrapper">
-        <div style={{display: 'flex'}}>
-            <SummaryCard title="TXN VOLUME" icon="icon" data={summaryData.transaction_volume}/>
-            <SummaryCard title="NEW CUSTOMERS" icon="icon" data={summaryData.new_customers}/>
-            <SummaryCard title="TOTAL RECEIVABLE" icon="icon" data={summaryData.total_receivable}/>
-            <SummaryCard title="FX GAIN" icon="icon" data={summaryData.fx_gain}/>
+        <div>
+            <h1>hell</h1>
+            {/* summary data */}
+            <div className="site-card-border-wrapper">
+            <div style={{display: 'flex'}}>
+                <SummaryCard title="TXN VOLUME" icon="icon" data={summaryData.transaction_volume}/>
+                <SummaryCard title="NEW CUSTOMERS" icon="icon" data={summaryData.new_customers}/>
+                <SummaryCard title="TOTAL RECEIVABLE" icon="icon" data={summaryData.total_receivable}/>
+                <SummaryCard title="FX GAIN" icon="icon" data={summaryData.fx_gain}/>
+            </div> 
+            </div>
+            {/* Recent Transcation Table */}
+            <h1>Recent Transcation</h1>
+            {recentTranscationStatus && <Tables dataSource={recentTranscationData} columns={recentTranscationColumns}/>}
+            
+            {/* Tickets table */}
+            <h1>Tickets</h1>
+            {ticketStatus && <Tables dataSource={ticketData} columns={ticketTranscationColumns}/>}
         </div> 
-        </div>
-        {/* Recent Transcation Table */}
-        <h1>Recent Transcation</h1>
-        {recentTranscationStatus && <Tables dataSource={recentTranscationData} columns={recentTranscationColumns}/>}
-        
-        {/* Tickets table */}
-        <h1>Tickets</h1>
-        {ticketStatus && <Tables dataSource={ticketData} columns={ticketTranscationColumns}/>}
-
-           
-    </div>
-    
-  )
+    )
 }

@@ -10,7 +10,7 @@ export default function SummaryCard({title,icon,data}) {
                 title={title}
                 bordered={true}
                 style={{
-                    width: 300,
+                    width: "240px",
                     margin:10
                 }}
             >
